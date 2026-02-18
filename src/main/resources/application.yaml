@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: "Task Management"
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      cache:
+        period: 0
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+  api-docs:
+    path: /v3/api-docs
+  show-actuator: false
+
+security:
+  jwt:
+    secret: "Aeo+mSI5vVw9IXFAQqlWH3yf0w3m2BKhxTi9J8dm1vc="
+    expiration-ms: 3600000

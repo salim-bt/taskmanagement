@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{fragments/head :: head('Task · Members')}" />
+<body class="bg-surface-0 font-sans text-text-primary min-h-screen" x-data>
+
+	<!-- Skip link -->
+	<a href="#users-main" class="skip-link">Skip to content</a>
+
+	<!-- Sidebar -->
+	<th:block th:replace="~{fragments/sidebar :: sidebar}" />
+	<!-- Command palette -->
+	<th:block th:replace="~{fragments/command-palette :: commandPalette}" />
+
+	<!-- Main content -->
+	<div class="lg:pl-[240px] min-h-screen">
+		<!-- Top bar -->
+		<header class="sticky top-0 z-30 h-14 bg-surface-0/80 backdrop-blur-md border-b border-border-subtle flex items-center px-6 gap-4">
+			<button @click="$store.sidebar.toggleMobile()" class="lg:hidden text-text-secondary hover:text-text-primary transition-colors" aria-label="Open menu">
+				<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+			</button>
+			<h1 class="text-base font-semibold text-text-primary">Members</h1>
+			<div class="flex-1"></div>
+			<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-red-500/15 text-red-400 border border-red-500/20">
+				Admin only
+			</span>
+		</header>
+
+		<main id="users-main" class="p-8 max-w-3xl" role="main">
+			<div id="usersList" class="bg-surface-2 border border-border rounded-lg overflow-hidden" role="list" aria-label="Team members"></div>
+		</main>
+	</div>
+
+	<script src="/assets/ui.js"></script>
+</body>
+</html>

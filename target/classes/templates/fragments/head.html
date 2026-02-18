@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Task — Manage work with precision. Kanban boards, role-based access, and full audit trails.">
+	<title th:text="${title}">Task</title>
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+	<script>
+	/* Theme init */
+	(function() {
+		const stored = localStorage.getItem('tf_theme');
+		const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		const theme = stored || system;
+		if (theme === 'dark') {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+
+	tailwind.config = {
+		darkMode: 'class',
+		theme: {
+			extend: {
+				fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+				colors: {
+					surface: {
+						0: 'var(--surface-0)',
+						1: 'var(--surface-1)',
+						2: 'var(--surface-2)',
+						3: 'var(--surface-3)',
+						4: 'var(--surface-4)',
+						5: 'var(--surface-5)',
+					},
+					border: {
+						subtle: 'var(--border-subtle)',
+						DEFAULT: 'var(--border-default)',
+						strong: 'var(--border-strong)',
+					},
+					text: {
+						primary: 'var(--text-primary)',
+						secondary: 'var(--text-secondary)',
+						tertiary: 'var(--text-tertiary)',
+					},
+					accent: {
+						DEFAULT: 'var(--accent)',
+						hover: 'var(--accent-hover)',
+						muted: 'var(--accent-muted)',
+						fg: 'var(--accent-fg)',
+					}
+				}
+			}
+		}
+	}
+	</script>
+	<link rel="stylesheet" href="/assets/ui.css">
+</head>
+<body></body>
+</html>
